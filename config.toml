@@ -1,0 +1,28 @@
+# The URL the site will be built for
+base_url = "https://wista110.github.io/zorablog"
+
+# Theme to use
+theme = "hayflow"
+
+# Whether to automatically compile all Sass files in the sass directory
+compile_sass = true
+
+# Whether to build a search index to be used later on by a JavaScript library
+build_search_index = true
+
+[markdown]
+# Whether to do syntax highlighting
+# Theme can be customised by setting the `highlight_theme` variable to a theme supported by Zola
+highlight_code = true
+
+[extra]
+# HayFlow theme settings
+name = { first = "dfuji", last = "blog" }
+
+links = [
+   { icon = "fa-brands fa-github", url = "https://github.com/wista110" },
+   { icon = "fa-solid fa-rss", url = "https://zenn.dev/dfuji/feed" },
+   { icon = "fa-brands fa-twitter", url = "https://twitter.com/dfuji" },
+]
+
+sections = ["zenn"]

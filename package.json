@@ -1,0 +1,14 @@
+{
+  "name": "zolablog",
+  "version": "1.0.0",
+  "description": "Zola blog with Zenn RSS integration",
+  "scripts": {
+    "fetch-zenn": "node scripts/fetch-zenn-rss.js",
+    "build": "npm run fetch-zenn && zola build",
+    "serve": "npm run fetch-zenn && zola serve"
+  },
+  "keywords": ["zola", "blog", "zenn", "rss"],
+  "author": "dfuji",
+  "license": "MIT"
+}
+

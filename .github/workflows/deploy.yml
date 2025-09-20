@@ -1,0 +1,41 @@
+name: Build and Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [ main ]
+  schedule:
+    # 毎週日曜日の午前9時に実行（UTC）
+    - cron: '0 9 * * 0'
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+
+    - name: Setup Zola
+      uses: taiki-e/install-action@zola
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+
+    - name: Fetch Zenn RSS and create posts
+      run: |
+        # Node.jsスクリプトでZenn RSSを取得してMarkdownファイルを生成
+        node scripts/fetch-zenn-rss.js
+
+    - name: Build site
+      run: zola build
+
+    - name: Deploy to GitHub Pages
+      uses: peaceiris/actions-gh-pages@v4
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: ./public
+        cname: false  # カスタムドメインを使用しない場合
+
