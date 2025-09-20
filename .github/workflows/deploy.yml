@@ -27,21 +27,13 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v4
 
-    - name: Setup Node.js
-      uses: actions/setup-node@v4
-      with:
-        node-version: '18'
-
     - name: Setup Zola
       uses: taiki-e/install-action@v1
       with:
-        tool: zola@0.18.0
+        tool: zola
 
     - name: Setup Pages
       uses: actions/configure-pages@v4
-
-    - name: Fetch Zenn RSS and create posts
-      run: node scripts/fetch-zenn-rss.js
 
     - name: Build with Zola
       run: zola build
