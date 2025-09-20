@@ -1,0 +1,12 @@
+﻿# Zola build output
+public/
+
+# Zenn content (separate repository)
+zenn-content/
+
+# Debug files
+debug-rss-output.xml
+
+# Node modules
+node_modules/
+package-lock.json
