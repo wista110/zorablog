@@ -8,6 +8,17 @@ on:
     - cron: '0 9 * * 0'
   workflow_dispatch:
 
+# 権限設定を追加
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# 同時実行制御
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -16,26 +27,38 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v4
 
-    - name: Setup Zola
-      uses: taiki-e/install-action@zola
-
     - name: Setup Node.js
       uses: actions/setup-node@v4
       with:
         node-version: '18'
 
-    - name: Fetch Zenn RSS and create posts
-      run: |
-        # Node.jsスクリプトでZenn RSSを取得してMarkdownファイルを生成
-        node scripts/fetch-zenn-rss.js
+    - name: Setup Zola
+      uses: taiki-e/install-action@v1
+      with:
+        tool: zola@0.18.0
 
-    - name: Build site
+    - name: Setup Pages
+      uses: actions/configure-pages@v4
+
+    - name: Fetch Zenn RSS and create posts
+      run: node scripts/fetch-zenn-rss.js
+
+    - name: Build with Zola
       run: zola build
 
-    - name: Deploy to GitHub Pages
-      uses: peaceiris/actions-gh-pages@v4
+    - name: Upload artifact
+      uses: actions/upload-pages-artifact@v3
       with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: ./public
-        cname: false  # カスタムドメインを使用しない場合
+        path: ./public
+
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+    - name: Deploy to GitHub Pages
+      id: deployment
+      uses: actions/deploy-pages@v4
 
