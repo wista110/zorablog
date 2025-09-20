@@ -1,5 +1,5 @@
 ﻿# Zola build output
-public/
+# public/ (commented out to allow static deployment)
 
 # Zenn content (separate repository)
 zenn-content/
