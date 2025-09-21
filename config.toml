@@ -21,9 +21,9 @@ name = { first = "Date", last = "Fujinari" }
 
 links = [
    { icon = "fa-brands fa-github", url = "https://github.com/wista110" },
-   { icon = "fa-solid fa-rss", url = "https://zenn.dev/dfuji/feed" },
+   { icon = "fa-solid fa-rss", url = "https://zenn.dev/dfuji" },
    { icon = "fa-brands fa-twitter", url = "https://x.com/WistaDev1" },
-   { icon = "fa-brands fa-instagram", url = "https://instagram.com/your_username" },
+   { icon = "fa-brands fa-instagram", url = "https://instagram.com/wista_dev" },
 ]
 
 sections = ["about", "contact", "zenn"]
