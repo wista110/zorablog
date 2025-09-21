@@ -1,4 +1,0 @@
-User-agent: *
-Disallow:
-Allow: /
-Sitemap: https://wista110.github.io/zorablog/sitemap.xml
