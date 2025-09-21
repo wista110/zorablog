@@ -35,9 +35,10 @@ jobs:
 
     - name: Install and setup Zola
       run: |
-        wget -O zola.tar.gz https://github.com/getzola/zola/releases/latest/download/zola-x86_64-unknown-linux-gnu.tar.gz
+        wget -O zola.tar.gz https://github.com/getzola/zola/releases/download/v0.20.0/zola-x86_64-unknown-linux-gnu.tar.gz
         tar -xzf zola.tar.gz
         sudo mv zola /usr/local/bin/
+        zola --version
 
     - name: Fetch Zenn RSS and build
       run: |
