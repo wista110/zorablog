@@ -1,6 +1,8 @@
-name: Deploy Static Site to GitHub Pages
+name: Deploy Zola Site to GitHub Pages
 
 on:
+  push:
+    branches: ["main"]
   schedule:
     # 毎週日曜日の午前9時に実行（UTC）- RSS更新用
     - cron: '0 9 * * 0'
@@ -8,13 +10,20 @@ on:
 
 # 権限設定
 permissions:
-  contents: write
+  contents: read
   pages: write
   id-token: write
 
+# 並行実行を停止
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
 jobs:
-  update-rss:
+  build:
     runs-on: ubuntu-latest
+    env:
+      ZOLA_VERSION: 0.18.0
     steps:
     - name: Checkout
       uses: actions/checkout@v4
@@ -24,22 +33,33 @@ jobs:
       with:
         node-version: '18'
 
-    - name: Setup Zola
+    - name: Install and setup Zola
       run: |
         wget -O zola.tar.gz https://github.com/getzola/zola/releases/latest/download/zola-x86_64-unknown-linux-gnu.tar.gz
         tar -xzf zola.tar.gz
         sudo mv zola /usr/local/bin/
 
-    - name: Fetch Zenn RSS and rebuild
+    - name: Fetch Zenn RSS and build
       run: |
         node scripts/fetch-zenn-rss.js
         zola build
 
-    - name: Commit updated site
-      run: |
-        git config --local user.email "action@github.com"
-        git config --local user.name "GitHub Action"
-        git add public/ content/zenn/
-        git diff --staged --quiet || git commit -m "Auto-update: Fetch latest Zenn articles"
-        git push
+    - name: Setup Pages
+      uses: actions/configure-pages@v4
+      
+    - name: Upload artifact
+      uses: actions/upload-pages-artifact@v3
+      with:
+        path: './public'
+
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+    - name: Deploy to GitHub Pages
+      id: deployment
+      uses: actions/deploy-pages@v4
 
