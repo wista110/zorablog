@@ -19,6 +19,8 @@
 		{% include "cards/columns.html" -%}
 		{% elif card_type == "list" -%}
 		{% include "cards/list.html" -%}
+		{% elif card_type == "grid" -%}
+		{% include "cards/grid.html" -%}
 		{% else -%}
 		<p>Unknown Card Type 🤷</p>
 		{%- endif %}

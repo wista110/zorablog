@@ -1,0 +1,31 @@
+{{ section.content | safe }}
+
+<div class="zenn-grid-container">
+	{%- for page in section.pages %}
+	<div class="zenn-card">
+		<a href="{{ page.extra.link }}" target="_blank" rel="noopener noreferrer" class="zenn-card-link">
+			<!-- タグバッジ -->
+			{% if page.extra.tag %}
+			<div class="zenn-tag zenn-tag-{{ page.extra.tag | lower }}">{{ page.extra.tag }}</div>
+			{% endif %}
+			
+			<!-- アイコン -->
+			<div class="zenn-icon">
+				{{ page.extra.icon | default(value="📝") }}
+			</div>
+			
+			<!-- タイトル -->
+			<h3 class="zenn-title">{{ page.title }}</h3>
+			
+			<!-- メタ情報 -->
+			<div class="zenn-meta">
+				<span class="zenn-time">{{ page.extra.time | default(value="今日") }}</span>
+				<span class="zenn-likes">
+					<i class="fa-regular fa-heart"></i>
+					{{ page.extra.likes | default(value="0") }}
+				</span>
+			</div>
+		</a>
+	</div>
+	{%- endfor -%}
+</div>

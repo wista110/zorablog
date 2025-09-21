@@ -17,12 +17,12 @@ highlight_code = true
 
 [extra]
 # HayFlow theme settings
-name = { first = "dfuji", last = "blog" }
+name = { first = "Date", last = "Fujinari" }
 
 links = [
    { icon = "fa-brands fa-github", url = "https://github.com/wista110" },
    { icon = "fa-solid fa-rss", url = "https://zenn.dev/dfuji/feed" },
-   { icon = "fa-brands fa-twitter", url = "https://twitter.com/dfuji" },
+   { icon = "fa-brands fa-twitter", url = "https://x.com/WistaDev1" },
 ]
 
-sections = ["zenn"]
+sections = ["about", "contact", "zenn"]

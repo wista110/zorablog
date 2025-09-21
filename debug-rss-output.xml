@@ -1,1 +1,29 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[dfujiさんのフィード]]></title><description><![CDATA[Zennのdfujiさん（@dfuji）のRSSフィードです]]></description><link>https://zenn.dev/dfuji</link><image><url>https://storage.googleapis.com/zenn-user-upload/avatar/1293a37512.jpeg</url><title>dfujiさんのフィード</title><link>https://zenn.dev/dfuji</link></image><generator>zenn.dev</generator><lastBuildDate>Sat, 20 Sep 2025 16:22:34 GMT</lastBuildDate><atom:link href="https://zenn.dev/dfuji/feed" rel="self" type="application/rss+xml"/><language><![CDATA[ja]]></language></channel></rss>
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[dfujiさんのフィード]]></title><description><![CDATA[Zennのdfujiさん（@dfuji）のRSSフィードです]]></description><link>https://zenn.dev/dfuji</link><image><url>https://storage.googleapis.com/zenn-user-upload/avatar/1293a37512.jpeg</url><title>dfujiさんのフィード</title><link>https://zenn.dev/dfuji</link></image><generator>zenn.dev</generator><lastBuildDate>Sun, 21 Sep 2025 06:57:57 GMT</lastBuildDate><atom:link href="https://zenn.dev/dfuji/feed" rel="self" type="application/rss+xml"/><language><![CDATA[ja]]></language><item><title><![CDATA[ZolaのHayFlowテーマでZenn RSS連携ブログを作る]]></title><description><![CDATA[
+ はじめに
+Rust製の静的サイトジェネレーター「Zola」と、モダンなHayFlowテーマを使って、Zenn RSSと連携するブログサイトを作成する方法を解説します。
+HayFlowはパーティクルエフェクト付きのダークテーマで、アニメーションが美しく、完全にMarkdownのみで管理できる点が特徴です。
+
+ 🎯 完成イメージ
+
+
+
+モダンなデザイン: パーティクルエフェクト + ダークテーマ
+
+3つのカードタイプ: Simple、Columns、List形式で柔軟なレイアウト
+
+Font Awesomeアイコン: ソーシャルリンクで使用
+
+Zenn RSS連携: 記事を自動取得・表示...]]></description><link>https://zenn.dev/dfuji/articles/zola-hayflow-blog</link><guid isPermaLink="true">https://zenn.dev/dfuji/articles/zola-hayflow-blog</guid><pubDate>Sat, 20 Sep 2025 19:30:09 GMT</pubDate><enclosure url="https://res.cloudinary.com/zenn/image/upload/s--1I5Ex0km--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:Zola%25E3%2581%25AEHayFlow%25E3%2583%2586%25E3%2583%25BC%25E3%2583%259E%25E3%2581%25A7Zenn%2520RSS%25E9%2580%25A3%25E6%2590%25BA%25E3%2583%2596%25E3%2583%25AD%25E3%2582%25B0%25E3%2582%2592%25E4%25BD%259C%25E3%2582%258B%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_37:dfuji%2Cx_203%2Cy_121/g_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9zdG9yYWdlLmdvb2dsZWFwaXMuY29tL3plbm4tdXNlci11cGxvYWQvYXZhdGFyLzEyOTNhMzc1MTIuanBlZw==%2Cr_max%2Cw_90%2Cx_87%2Cy_95/v1627283836/default/og-base-w1200-v2.png" length="0" type="image/png"/><dc:creator>dfuji</dc:creator></item><item><title><![CDATA[Zenn CLI入門：記事投稿からGitHub連携まで初心者が躓いたポイント全解説]]></title><description><![CDATA[
+ はじめに
+Zennの記事投稿には「Webエディタ」と「Zenn CLI + GitHub連携」の2つの方法がありますが、CLI方式は設定項目が多くて初心者には難しく感じますよね。
+この記事では、実際にZenn CLIを使って記事投稿を行う中で躓いたポイントと解決方法を体験談として整理しました。
+
+ 🤔 最初の疑問：どこに何を置けばいい？
+
+ ディレクトリ構成の混乱
+最初に混乱したのが、既存のプロジェクト内に記事を置くべきか、別ディレクトリに置くべきかという点でした。
+❌ 混同していた構成:
+my-project/
+├── content/ ← 既存プロジェクトのコンテンツ
+├── z...]]></description><link>https://zenn.dev/dfuji/articles/zenn-cli-point</link><guid isPermaLink="true">https://zenn.dev/dfuji/articles/zenn-cli-point</guid><pubDate>Sat, 20 Sep 2025 19:30:08 GMT</pubDate><enclosure url="https://res.cloudinary.com/zenn/image/upload/s--3n4LDXwV--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_55:Zenn%2520CLI%25E5%2585%25A5%25E9%2596%2580%25EF%25BC%259A%25E8%25A8%2598%25E4%25BA%258B%25E6%258A%2595%25E7%25A8%25BF%25E3%2581%258B%25E3%2582%2589GitHub%25E9%2580%25A3%25E6%2590%25BA%25E3%2581%25BE%25E3%2581%25A7%25E5%2588%259D%25E5%25BF%2583%25E8%2580%2585%25E3%2581%258C%25E8%25BA%2593%25E3%2581%2584%25E3%2581%259F%25E3%2583%259D%25E3%2582%25A4%25E3%2583%25B3%25E3%2583%2588%25E5%2585%25A8%25E8%25A7%25A3%25E8%25AA%25AC%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_37:dfuji%2Cx_203%2Cy_121/g_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9zdG9yYWdlLmdvb2dsZWFwaXMuY29tL3plbm4tdXNlci11cGxvYWQvYXZhdGFyLzEyOTNhMzc1MTIuanBlZw==%2Cr_max%2Cw_90%2Cx_87%2Cy_95/v1627283836/default/og-base-w1200-v2.png" length="0" type="image/png"/><dc:creator>dfuji</dc:creator></item><item><title><![CDATA[test]]></title><description><![CDATA[動作確認用
+]]></description><link>https://zenn.dev/dfuji/articles/759d65692ceb70</link><guid isPermaLink="true">https://zenn.dev/dfuji/articles/759d65692ceb70</guid><pubDate>Sat, 20 Sep 2025 18:04:06 GMT</pubDate><enclosure url="https://res.cloudinary.com/zenn/image/upload/s--ZJRE2v_e--/c_fit%2Cg_north_west%2Cl_text:notosansjp-medium.otf_80:test%2Cw_1010%2Cx_90%2Cy_100/g_south_west%2Cl_text:notosansjp-medium.otf_37:dfuji%2Cx_203%2Cy_121/g_south_west%2Ch_90%2Cl_fetch:aHR0cHM6Ly9zdG9yYWdlLmdvb2dsZWFwaXMuY29tL3plbm4tdXNlci11cGxvYWQvYXZhdGFyLzEyOTNhMzc1MTIuanBlZw==%2Cr_max%2Cw_90%2Cx_87%2Cy_95/v1627283836/default/og-base-w1200-v2.png" length="0" type="image/png"/><dc:creator>dfuji</dc:creator></item></channel></rss>

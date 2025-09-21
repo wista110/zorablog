@@ -1,5 +1,9 @@
 +++
 [extra]
-roles = ["Tech Writer", "Developer", "Zenn Creator"]
+roles = [
+    "Solo Developer", 
+    "Tech Writer", 
+    "WEB Creator"
+    ]
 +++
 

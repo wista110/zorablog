@@ -72,6 +72,25 @@ function cleanText(text) {
     .trim();
 }
 
+// タイトルからアイコンとタグを自動判定する関数
+function detectIconAndTag(title) {
+  const titleLower = title.toLowerCase();
+  
+  // キーワードベースの判定
+  if (titleLower.includes('cli') || titleLower.includes('github') || titleLower.includes('入門')) {
+    return { icon: '\u{1F4DD}', tag: 'TECH' }; // 📝
+  }
+  if (titleLower.includes('zola') || titleLower.includes('blog') || titleLower.includes('rss')) {
+    return { icon: '\u{1F680}', tag: 'TECH' }; // 🚀
+  }
+  if (titleLower.includes('test') || titleLower.includes('動作確認')) {
+    return { icon: '\u{1F60A}', tag: 'IDEA' }; // 😊
+  }
+  
+  // デフォルト値
+  return { icon: '\u{1F4C4}', tag: 'TECH' }; // 📄
+}
+
 // MarkdownファイルとしてZenn記事セクションを作成
 function createZennSection(entries) {
   const sectionDir = path.join('content', 'zenn');
@@ -92,8 +111,8 @@ function createZennSection(entries) {
 title = "Zenn記事"
 
 [extra]
-card_type = "list"
-discover = "記事を読む"
+card_type = "grid"
+discover = "続きを読む"
 +++
 
 私がZennで投稿した技術記事の一覧です。
@@ -124,11 +143,20 @@ link = "https://zenn.dev/dfuji"
       const filename = `article-${String(index + 1).padStart(2, '0')}.md`;
       const publishedDate = entry.published.toISOString().split('T')[0];
       
+      // タイトルから自動判定
+      const { icon, tag } = detectIconAndTag(entry.title);
+      const daysAgo = Math.floor((Date.now() - entry.published.getTime()) / (1000 * 60 * 60 * 24));
+      const timeText = daysAgo === 0 ? '今日' : `${daysAgo}日前`;
+      
       const articleContent = `+++
 title = "${entry.title}"
 
 [extra]
 link = "${entry.link}"
+tag = "${tag}"
+icon = "${icon}"
+time = "${timeText}"
+likes = "0"
 +++
 
 **投稿日**: ${publishedDate}
