@@ -1,30 +1,22 @@
 +++
-title = "ZolaのHayFlowテーマでZenn RSS連携ブログを作る"
+title = "ExcelVBA On Error GoTo完全ガイド：エラー処理の基本から実践的なバッチ処理まで"
 
 [extra]
-link = "https://zenn.dev/dfuji/articles/zola-hayflow-blog"
+link = "https://zenn.dev/dfuji/articles/excel-vba-error-handling"
 tag = "TECH"
-icon = "🚀"
-time = "今日"
+icon = "📄"
+time = "3日前"
 likes = "0"
 +++
 
-**投稿日**: 2025-09-20
+**投稿日**: 2025-09-22
 
 はじめに
-Rust製の静的サイトジェネレーター「Zola」と、モダンなHayFlowテーマを使って、Zenn RSSと連携するブログサイトを作成する方法を解説します。
-HayFlowはパーティクルエフェクト付きのダークテーマで、アニメーションが美しく、完全にMarkdownのみで管理できる点が特徴です。
+ExcelVBAを学んでいると、必ずと言っていいほど遭遇するのがエラー処理です。特にOn Error GoToは、プログラムを堅牢にするために欠かせない構文ですが、正しい使い方を理解していないと、かえってバグの温床になってしまうこともあります。
+この記事では、On Error GoToの基本を実際のコード例とともに解説したいと思います。
+※ちなみにほぼ自分用のメモみたいなもんです。良かったら参考にしてください。😉
 
- 🎯 完成イメージ
+ On Error GoTo とは
+On Error GoToは、VBAでエラーが発生した際に、指定したラベルへ処理をジャンプさせる構文です。これにより、予期し...
 
-
-
-モダンなデザイン: パーティクルエフェクト + ダークテーマ
-
-3つのカードタイプ: Simple、Columns、List形式で柔軟なレイアウト
-
-Font Awesomeアイコン: ソーシャルリンクで使用
-
-Zenn RSS連携: 記事を自動取得・表示...
-
-[→ Zennで続きを読む](https://zenn.dev/dfuji/articles/zola-hayflow-blog)
+[→ Zennで続きを読む](https://zenn.dev/dfuji/articles/excel-vba-error-handling)

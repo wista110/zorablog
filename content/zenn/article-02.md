@@ -1,27 +1,30 @@
 +++
-title = "Zenn CLI入門：記事投稿からGitHub連携まで初心者が躓いたポイント全解説"
+title = "ZolaのHayFlowテーマでZenn RSS連携ブログを作る"
 
 [extra]
-link = "https://zenn.dev/dfuji/articles/zenn-cli-point"
+link = "https://zenn.dev/dfuji/articles/zola-hayflow-blog"
 tag = "TECH"
-icon = "📝"
-time = "今日"
+icon = "🚀"
+time = "4日前"
 likes = "0"
 +++
 
 **投稿日**: 2025-09-20
 
 はじめに
-Zennの記事投稿には「Webエディタ」と「Zenn CLI + GitHub連携」の2つの方法がありますが、CLI方式は設定項目が多くて初心者には難しく感じますよね。
-この記事では、実際にZenn CLIを使って記事投稿を行う中で躓いたポイントと解決方法を体験談として整理しました。
+Rust製の静的サイトジェネレーター「Zola」と、モダンなHayFlowテーマを使って、Zenn RSSと連携するブログサイトを作成する方法を解説します。
+HayFlowはパーティクルエフェクト付きのダークテーマで、アニメーションが美しく、完全にMarkdownのみで管理できる点が特徴です。
 
- 🤔 最初の疑問：どこに何を置けばいい？
+ 🎯 完成イメージ
 
- ディレクトリ構成の混乱
-最初に混乱したのが、既存のプロジェクト内に記事を置くべきか、別ディレクトリに置くべきかという点でした。
-❌ 混同していた構成:
-my-project/
-├── content/ ← 既存プロジェクトのコンテンツ
-├── z...
 
-[→ Zennで続きを読む](https://zenn.dev/dfuji/articles/zenn-cli-point)
+
+モダンなデザイン: パーティクルエフェクト + ダークテーマ
+
+3つのカードタイプ: Simple、Columns、List形式で柔軟なレイアウト
+
+Font Awesomeアイコン: ソーシャルリンクで使用
+
+Zenn RSS連携: 記事を自動取得・表示...
+
+[→ Zennで続きを読む](https://zenn.dev/dfuji/articles/zola-hayflow-blog)
