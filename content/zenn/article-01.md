@@ -1,22 +1,30 @@
 +++
-title = "ExcelVBA On Error GoTo完全ガイド：エラー処理の基本から実践的なバッチ処理まで"
+title = "gh CLI完全ガイド：GitHubをコマンドラインで効率化する方法"
 
 [extra]
-link = "https://zenn.dev/dfuji/articles/excel-vba-error-handling"
+link = "https://zenn.dev/dfuji/articles/c9784a4face9ba"
 tag = "TECH"
-icon = "📄"
-time = "3日前"
+icon = "📝"
+time = "今日"
 likes = "0"
 +++
 
-**投稿日**: 2025-09-22
+**投稿日**: 2025-09-29
 
-はじめに
-ExcelVBAを学んでいると、必ずと言っていいほど遭遇するのがエラー処理です。特にOn Error GoToは、プログラムを堅牢にするために欠かせない構文ですが、正しい使い方を理解していないと、かえってバグの温床になってしまうこともあります。
-この記事では、On Error GoToの基本を実際のコード例とともに解説したいと思います。
-※ちなみにほぼ自分用のメモみたいなもんです。良かったら参考にしてください。😉
+gh CLI完全ガイド：GitHubをコマンドラインで使えるようになりたい。
+GitHubをブラウザを開いてポチポチやる面倒なので、公式CLIツール「gh」を使って、GitHubの操作をコマンドでできるようになりたいと思い、記事にまとめました。
 
- On Error GoTo とは
-On Error GoToは、VBAでエラーが発生した際に、指定したラベルへ処理をジャンプさせる構文です。これにより、予期し...
+ はじめに
+gh CLIは、GitHubの操作をコマンドラインで行える公式ツールです。ブラウザでの操作と比べて、以下のメリットがあります：
+主なメリット:
 
-[→ Zennで続きを読む](https://zenn.dev/dfuji/articles/excel-vba-error-handling)
+ブラウザを開かずにGitHub操作が可能
+キーボードのみでの高速操作
+コマンド履歴による操作の再現
+スクリプト化による自動化
+
+
+ インストールと初期設定
+一応インストール載せておきま...
+
+[→ Zennで続きを読む](https://zenn.dev/dfuji/articles/c9784a4face9ba)
